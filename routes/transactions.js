@@ -61,9 +61,10 @@ router.post("/transactions", isLoggedIn, async (req, res, next) => {
     userId: req.user._id,
     title: req.body.title,
     amount: req.body.amount,
+    priority: req.body.priority, // adding this line
     date: req.body.date,
     description: req.body.description,
-    category: req.body.category,
+    category: category._id,
   });
   await transaction.save();
   res.redirect("/transactions");
